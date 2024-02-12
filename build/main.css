@@ -352,7 +352,7 @@ p{
   }
   .landing_page_footer span a:hover{
     opacity: 0.5;
-  }ansition: 0.5s ease;
+    transition: 0.5s ease;
   }
   .landing_page_footer span a:hover{
     opacity: 0.5;
