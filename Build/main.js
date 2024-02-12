@@ -100,33 +100,33 @@
 
 
   // Generate gallery from JSON
-  galleryItemList.galleryItems.forEach((item, index) => {
+  // galleryItemList.galleryItems.forEach((item, index) => {
 
-    const itemContainer = document.createElement('div');
-    itemContainer.classList.add("grid_item");
-    itemContainer.innerHTML = `<img src="${item.url}" class="grid_image"/>`;
-        const galleryItem1 = document.querySelector('.grid_gallery_inner');
-    galleryItem1.appendChild(itemContainer)
+  //   const itemContainer = document.createElement('div');
+  //   itemContainer.classList.add("grid_item");
+  //   itemContainer.innerHTML = `<img src="${item.url}" class="grid_image"/>`;
+  //       const galleryItem1 = document.querySelector('.grid_gallery_inner');
+  //   galleryItem1.appendChild(itemContainer)
 
-  });
+  // });
 
   // Fade in gallery items when user scrolls down
-  document.addEventListener('DOMContentLoaded', function() {
-    const gridItems = document.querySelectorAll('.grid_image');
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   const gridItems = document.querySelectorAll('.grid_image');
     
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    });
+  //   const observer = new IntersectionObserver((entries, observer) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         entry.target.classList.add('visible');
+  //         observer.unobserve(entry.target);
+  //       }
+  //     });
+  //   });
     
-    gridItems.forEach((item) => {
-      observer.observe(item);
-    });
-  });
+  //   gridItems.forEach((item) => {
+  //     observer.observe(item);
+  //   });
+  // });
   
 
 
@@ -139,6 +139,7 @@
         var rect2 = document.getElementById('rect2');
         var rect3 = document.getElementById('rect3');
         var rect4 = document.getElementById('rect4');
+        var menu = document.getElementById('mainMenu');
 
         if (isOpen) {
             // Change to hamburger icon
@@ -146,12 +147,16 @@
             rect4.style.opacity = '1';
             rect2.style.cssText = 'transform: rotate(0); transform-origin: center; ';
             rect3.style.cssText = 'transform: rotate(0); transform-origin: center; ';
+            menu.classList.remove("menu_active");
+            
+
         } else {
             // Change to X icon
             rect1.style.opacity = '0';
             rect4.style.opacity = '0';
             rect2.style.cssText = 'transform: rotate(-45deg); transform-origin: center; ';
             rect3.style.cssText = 'transform: rotate(45deg); transform-origin: center; ';
+            menu.classList.add("menu_active");
         }
 
         isOpen = !isOpen; // Toggle the state

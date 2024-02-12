@@ -12,44 +12,44 @@ body {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  position: relative;
+  min-height: 820px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 ol,
 ul {
   list-style: none;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+
+p{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  line-height: 25px;
+}
 
 
+
+
+
+/* Gallery */
 .grid_gallery_component {
   width: 100%;
   opacity: 1; /* Set the default opacity to fully transparent */
 }
 
 .grid_gallery_inner {
-display: grid;
-grid-gap: 10px;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-grid-auto-rows: 150px;
-grid-auto-flow: dense;
-max-width: 900px;
-margin: auto;
-padding: 20px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 150px;
+  grid-auto-flow: dense;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
 }
-/* .horizontal {
-grid-column: span 2;
-}
-.vertical {
-grid-row: span 2;
-}
-.big {
-grid-column: span 2;
-grid-row: span 2;
-}
-
-.grid_item {
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-} */
 
 .grid_item:hover .grid_image{
  scale: 110%;
@@ -62,16 +62,11 @@ grid-row: span 2;
   position: absolute;
   transition: 2s ease;
   opacity: 0;
-  /* top: 50px; */
 }
 
 .visible {
   opacity: 1;
-  /* top: 0px; */
 }
-
-
-/* New */
 
 .grid_item:nth-child(17n+3), .grid_item:nth-child(17n+11), .grid_item:nth-child(17n+16) {
   grid-column: span 2;
@@ -98,17 +93,41 @@ grid-row: span 2;
 
   .menu{
     height: 100%;
-    width: 35px;
-    background-color: black;
+    width: 380px;
+    background-color: #9BE4FA;
     position: absolute;
+    display: flex;
+    z-index: 100;
+    left: -330px;
+    transition: 1s ease;
   }
+
+  .menu_active{
+    left: 0px;
+  }
+
+  .menu ul{
+    color: white;
+    margin: 50px;
+    line-height: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .menu ul li a{
+    color: white;
+  }
+  .menu ul li:hover{
+    opacity: 50%;
+    cursor: pointer;
+    transition: 0.5s ease;
+  }
+  /* Menu Button */
   #menuButton {
-   margin: 7px;
+   margin: 15px;
    cursor: pointer;
-   /* border: 1px solid red; */
    position: relative;
    height: 20px;
    width: 20px;
+  margin-left: auto;
   }
  #rect1, #rect2, #rect3, #rect4 {
     background-color: white;
@@ -123,4 +142,172 @@ grid-row: span 2;
   }
   #rect4{
     top: 20px;
+  }
+
+
+
+
+
+
+
+
+
+
+  /* Landing_page */
+
+  .landing_page{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+  }
+  .outer_containers{
+    height: 100%;
+    min-height: 870px;
+    width: 50%;
+    min-width: 550px;
+    display: flex;
+  }
+
+  .inner_containers{
+    height: 700px;
+    width: 70%;
+    max-width: 500px;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .landing_page .left_container{
+    background-image: url("/build/images/temp.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: flex-end;
+  }
+
+  .landing_page .left_container .inner{
+    background-color: #F82054;
+    border-radius: 40px 0px 0px 40px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    text-align: center;
+  }
+
+  .landing_page .left_container .inner img{
+    height: 300px;
+  }
+
+
+.animated-text{
+  font-size: 40px;
+  font-weight: 600;
+  color: white;
+  margin-top: 30px;
+}
+.animated-text span{
+  position: relative;
+}
+.animated-text span::before{
+  content: "Graphic Designer";
+  animation: words 20s infinite;
+}
+
+.animated-text span::after{
+  content: "";
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  background-color: #F82054;
+  border-left: 2px solid orange;
+  right: -8px;
+  animation: cursor 0.8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+  to{
+    border-left: 2px solid #F82054;
+  }
+}
+
+@keyframes words {
+  0%, 33%{
+    content: "Graphic Designer";
+  }
+  34%, 66%{
+    content: "Textile Designer";
+  }
+  67%, 100%{
+    content: "Web Developer";
+  }
+
+}
+
+@keyframes typing {
+  16%, 24%, 49%, 57%, 82%, 90% {
+    width: 0;
+  } 
+  8%, 33%, 41%, 66%, 74%, 100% {
+    width: calc(100% + 8px);
+  }
+}
+
+
+
+
+
+
+  .landing_page .right_container{
+    background-color: #F82054;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .landing_page .right_container .inner{
+    background-color: white;
+    border-radius: 0px 40px 40px 0px;
+    padding: 50px 50px;
+  }
+  .landing_page .right_container .inner .about_me_container{
+    height: 600px;
+    overflow-y: scroll;
+  }
+  .landing_page .right_container .inner .about_me_container::-webkit-scrollbar{
+    display: none;
+  }
+
+  .landing_page .right_container .inner p span{
+    font-size: 35px;
+    line-height: 50px;
+  }
+
+  .landing_page_footer{
+    color: white;
+    display: flex;
+    width: 500px;
+    bottom: 0px;
+    margin-top: auto;
+    padding: 20px 40px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  .landing_page_footer img{
+    position: absolute;
+    left: 240px;
+    bottom: 20px;
+  }
+  .landing_page_footer span{
+    float: right;
+  }
+
+  .landing_page_footer span a{
+    margin-right: 15px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    transition: 0.5s ease;
+  }
+  .landing_page_footer span a:hover{
+    opacity: 0.5;
   }
